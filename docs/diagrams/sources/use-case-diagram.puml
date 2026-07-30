@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+actor User as U
+
+(Create task) as UC1
+(Update task information) as UC2
+(Change task status) as UC3
+(Delete task) as UC4
+(Search task) as UC5
+(Order task search by criteria) as UC5.1
+(Filter task by status) as UC5.2
+(Filter task by category) as UC5.3
+(Create task category) as UC6
+(Update task category) as UC7
+(Delete task category) as UC8
+(Assign category to task) as UC9
+(Access task modification history) as UC10
+(Register task modification) as UCH
+
+U --> UC1
+UC1 .down.> UCH : <<include>>
+U --> UC2
+UC2 .down.> UCH : <<include>>
+U --> UC3
+UC3 .down.> UCH : <<include>>
+U --> UC4
+U --> UC5
+UC5.1 .up.> UC5 : <<extend>>
+UC5.2 .up.> UC5 : <<extend>>
+UC5.3 .up.> UC5 : <<extend>>
+U -up-> UC6
+U -up-> UC7
+U -up-> UC8
+U -up-> UC9
+U -up-> UC10
+
+@enduml

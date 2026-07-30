@@ -7,7 +7,7 @@ Arquivo fonte:
 
 Visualização:
 
-![Diagrama de Casos de Uso](images/usecase.png)
+![Diagrama de Casos de Uso](images/use-case-diagram.svg)
 
 ---
 
