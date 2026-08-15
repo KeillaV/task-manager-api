@@ -17,8 +17,8 @@ class Category {
 
 enum Status <<enum>> {
     BACKLOG : String
-    ONGOING : String
-    FINISHED : String
+    ON_PROGRESS : String
+    DONE : String
     CANCELLED : String
 }
 

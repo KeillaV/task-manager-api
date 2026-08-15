@@ -6,9 +6,14 @@ O objetivo do projeto é desenvolver funcionalidades utilizando como base os pri
 Além da implementação das funcionalidades do sistema, o projeto será utilizado como ambiente de estudo para explorar conceitos de engenharia de software, 
 arquitetura, persistência de dados, modelagem de domínio, testes e ferramentas utilizadas no desenvolvimento de aplicações modernas.
 
-## Documentação
+---
+# Documentação
 
-### Diagramas
+## Requisitos
+- [Requisitos Funcionais](docs/requirements/functional-requirements.md)
+- [Requisitos Não Funcionais](docs/requirements/non-functional-requirements.md)
+---
+## Diagramas
 
 O projeto utiliza a ferramenta de modelagem **PlantUML** para manutenção dos diagramas, incluindo:
 - Diagrama de casos de uso
@@ -20,11 +25,21 @@ A escolha do PlantUML foi feita considerando os pontos:
 - Facilidade de manutenção
 - Para fins de estudo da ferramenta
 
-Os diagramas desenvolvidos podem ser acessados [aqui](docs/diagrams/README.md)
+### Diagrama de casos de uso:
+![Diagrama de Casos de Uso](docs/diagrams/images/use-case-diagram.svg)
 
-### Requisitos 
-- [Requisitos Funcionais](docs/requirements/functional-requirements.md)
-- [Requisitos Não Funcionais](docs/requirements/non-functional-requirements.md)
+### Diagrama Entidade Relacionamento
+![Diagrama de Entidade e Relacionamento](docs/diagrams/images/er-diagram.svg)
 
-### Arquitetura
-- [Arquitetura](docs/architecture/README.md)
+### Diagrama de Classes:
+![Diagrama de Classes](docs/diagrams/images/class-diagram.svg)
+
+---
+## Arquitetura
+A arquitetura do sistema é definida seguindo o C4 Model, utilizando essencialmente as primeiras duas camadas:
+
+### Diagrama de contexto do sistema:
+![Diagrama de contexto do sistema](docs/architecture/images/context.svg)
+
+### Diagrama de container:
+![Diagrama de Container](docs/architecture/images/container.svg)
