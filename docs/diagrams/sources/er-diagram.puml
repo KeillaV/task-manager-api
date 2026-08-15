@@ -16,6 +16,7 @@ entity CATEGORY {
     --
     * name : varchar
     description : varchar
+    created_at : timestamp
 
 }
 
