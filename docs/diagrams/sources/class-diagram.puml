@@ -1,0 +1,37 @@
+@startuml
+class Task {
+ - title : String
+ - status : Status
+ - description: String
+ - category : Category
+ - deadline : LocalDateTime
+ - createdAt : LocalDateTime
+ - priority : Priority
+}
+
+class Category {
+- name : String
+- description : String
+- createdAt : LocalDateTime
+}
+
+enum Status <<enum>> {
+    BACKLOG : String
+    ONGOING : String
+    FINISHED : String
+    CANCELLED : String
+}
+
+enum Priority <<enum>>{
+    LOW : String
+    MEDIUM : String
+    HIGH : String
+    CRITICAL : String
+
+}
+
+Task "0..*" -- "0..1" Category
+Task *-- Status
+Task *-- Priority
+
+@enduml
