@@ -1,0 +1,36 @@
+@startuml
+entity TASK {
+    * id : UUID <<PK>>
+    --
+    * title : varchar
+    * status : varchar
+    category_id : UUID <<FK>>
+    description : varchar
+    created_at : timestamp
+    deadline : date
+    priority : varchar
+}
+
+entity CATEGORY {
+    * id : UUID <<PK>>
+    --
+    * name : varchar
+    description : varchar
+    created_at : timestamp
+
+}
+
+entity TASK_HISTORY {
+    * id : UUID <<PK>>
+    --
+    task_id : UUID <<FK>>
+    action : varchar
+    old_value : varchar
+    new_value : varchar
+    altered_at : timestamp
+}
+
+TASK }o--o| CATEGORY : belongs to
+TASK ||--o{ TASK_HISTORY : has
+
+@enduml
