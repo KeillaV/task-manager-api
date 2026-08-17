@@ -1,12 +1,13 @@
-package io.github.keillabezerra.task_manager_api.domain.model;
+package io.github.keillabezerra.task_manager_api.application.domain;
 
-import io.github.keillabezerra.task_manager_api.domain.model.enums.Priority;
-import io.github.keillabezerra.task_manager_api.domain.model.enums.Status;
+import io.github.keillabezerra.task_manager_api.application.enums.Priority;
+import io.github.keillabezerra.task_manager_api.application.enums.Status;
 
 import java.time.LocalDateTime;
 
 public class Task {
 
+    private long id;
     private String title;
     private Status status;
     private String description;
@@ -15,7 +16,8 @@ public class Task {
     private LocalDateTime createdAt;
     private Priority priority;
 
-    private Task(final Builder builder) {
+    public Task(final Builder builder) {
+        this.id = builder.id;
         this.title = builder.title;
         this.status = builder.status;
         this.description = builder.description;
@@ -23,6 +25,18 @@ public class Task {
         this.deadline = builder.deadline;
         this.createdAt = builder.createdAt;
         this.priority = builder.priority;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -37,7 +51,7 @@ public class Task {
         return this.status;
     }
 
-    public void alterStatus(final Status status) {
+    public void setStatus(final Status status) {
         this.status = status;
     }
 
@@ -69,7 +83,7 @@ public class Task {
         return this.createdAt;
     }
 
-    public void setCreatedAt() {
+    public void setCreatedAt(final LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -83,7 +97,13 @@ public class Task {
 
     @Override
     public int hashCode() {
-        return 31 * this.title.hashCode();
+        var result = this.title.hashCode();
+        result = 31 * result + this.description.hashCode();
+        result = 31 * result + this.category.hashCode();
+        result = 31 * result + this.status.hashCode();
+        result = 31 * result + this.deadline.hashCode();
+        result = 31 * result + this.priority.hashCode();
+        return result;
     }
 
     @Override
@@ -98,16 +118,23 @@ public class Task {
 
         Task otherTask = (Task) object;
 
-        return this.title.equals(otherTask.getTitle());
+        return this.id == otherTask.getId() &&
+                this.title.equals(otherTask.getTitle()) &&
+                this.description.equals(otherTask.getDescription()) &&
+                this.category.equals(otherTask.getCategory()) &&
+                this.status.equals(otherTask.getStatus()) &&
+                this.deadline.equals(otherTask.getDeadline()) &&
+                this.priority.equals(otherTask.getPriority());
     }
 
     @Override
     public String toString() {
-        return "Título: " + this.title + "\nDescrição: " + this.description +
+        return "Title: " + this.title + "\nDescription: " + this.description +
                 "\nStatus: " + status.name();
     }
 
     public static class Builder {
+        private long id;
         private String title;
         private Status status;
         private String description;
@@ -116,10 +143,19 @@ public class Task {
         private LocalDateTime createdAt;
         private Priority priority;
 
-        public Builder(final String title) {
-            this.title = title;
+        public Builder() {
             this.createdAt = LocalDateTime.now();
             this.status = Status.BACKLOG;
+        }
+
+        public Builder id(final long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder title(final String title) {
+            this.title = title;
+            return this;
         }
 
         public Builder status(final Status status) {

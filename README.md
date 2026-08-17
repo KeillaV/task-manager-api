@@ -43,3 +43,5 @@ A arquitetura do sistema é definida seguindo o C4 Model, utilizando essencialme
 
 ### Diagrama de container:
 ![Diagrama de Container](docs/architecture/images/container.svg)
+
+O projeto será desenvolvido seguindo o clean architecture, para fins de estudo.
