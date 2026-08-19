@@ -84,7 +84,7 @@ O usuário pode criar categorias para organizar melhor suas tarefas
 - Descrição
 
 **Critérios de aceitação:**
-- O título deve possuir mais de 2 caracteres
+- O nome deve possuir mais de 2 caracteres
 - A categoria criada deve aparecer na listagem de categorias
 
 ### RF-007 - Atualizar dados de categoria
